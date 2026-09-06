@@ -465,7 +465,6 @@ function Hero() {
 }
 
 function PortfolioCard({ item, large = false }: { item: Project; large?: boolean }) {
-  const cfg = STATUS_CONFIG[item.status]
   return (
     <div className="portfolio-card" style={{ borderRadius: 0, padding: large ? '32px' : '24px', height: '100%', display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
