@@ -481,9 +481,10 @@ function PortfolioCard({ item, large = false }: { item: Project; large?: boolean
           {item.tags.map(t => <span key={t} className="tag">{t}</span>)}
         </div>
         {item.url && (
-          <a href={item.url} target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ padding: '8px 16px', fontSize: 12, marginTop: 16, display: 'inline-flex' }}>
+          <button className="btn-ghost" style={{ padding: '8px 16px', fontSize: 12, marginTop: 16, display: 'inline-flex', cursor: 'pointer' }}
+            onClick={() => window.open(item.url!, '_blank', 'noopener,noreferrer')}>
             Visit site →
-          </a>
+          </button>
         )}
         {!item.url && item.status === 'needs-deploy' && (
           <div className="mono" style={{ fontSize: 10, color: 'var(--gold)', marginTop: 12, letterSpacing: '0.06em' }}>⏳ Frontend deployment in progress</div>
