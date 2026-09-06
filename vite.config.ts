@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/gpc-devhub/",
+  base: process.env.GITHUB_ACTIONS ? "/gpc-devhub/" : "/",
   plugins: [react()],
   resolve: {
     alias: {
