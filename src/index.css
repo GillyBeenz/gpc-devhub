@@ -206,3 +206,69 @@ body {
 ::-webkit-scrollbar-track { background: var(--navy); }
 ::-webkit-scrollbar-thumb { background: var(--slate); border-radius: 3px; }
 
+/* ── Mobile responsive ── */
+@media (max-width: 768px) {
+
+  /* Nav */
+  #nav-links { display: none !important; }
+  #nav-status { display: none !important; }
+
+  /* Hero */
+  #hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding: 48px 16px 60px !important;
+  }
+  #hero-right { display: none !important; }
+  #hero-btns {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  #hero-btns a, #hero-btns button {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Work section */
+  #work { padding: 56px 16px !important; }
+  #portfolio-featured {
+    grid-template-columns: 1fr !important;
+    gap: 2px !important;
+  }
+  #portfolio-rest {
+    grid-template-columns: 1fr !important;
+    gap: 2px !important;
+  }
+
+  /* Services */
+  #services { padding: 56px 16px !important; }
+  #services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2px !important;
+  }
+
+  /* About */
+  #about { padding: 0 !important; }
+  #about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding: 56px 16px !important;
+  }
+
+  /* Contact */
+  #contact { padding: 56px 16px !important; }
+  #contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding: 0 !important;
+  }
+
+  /* Max-width containers */
+  #work > div,
+  #services > div {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

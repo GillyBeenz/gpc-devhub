@@ -400,7 +400,7 @@ function Nav() {
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
-            <nav style={{ display: 'flex', gap: 28 }}>
+            <nav id="nav-links" style={{ display: 'flex', gap: 28 }}>
               {['Work', 'About', 'Services', 'Contact'].map(item => (
                 <a key={item} href={`#${item.toLowerCase()}`} style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: 14, fontWeight: 500, transition: 'color 0.2s' }}
                   onMouseEnter={e => (e.target as HTMLElement).style.color = 'var(--text-primary)'}
@@ -408,7 +408,7 @@ function Nav() {
                 >{item}</a>
               ))}
             </nav>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: 'var(--text-muted)' }}>
+            <div id="nav-status" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: 'var(--text-muted)' }}>
               <span className="status-dot"/>
               <span className="mono">Building</span>
             </div>
@@ -426,7 +426,7 @@ function Hero() {
       <div style={{ position: 'absolute', top: '15%', left: '10%', width: 500, height: 500, background: 'radial-gradient(circle, rgba(43,95,236,0.08) 0%, transparent 70%)', pointerEvents: 'none' }}/>
       <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: 400, height: 400, background: 'radial-gradient(circle, rgba(245,166,35,0.05) 0%, transparent 70%)', pointerEvents: 'none' }}/>
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '80px 24px', width: '100%' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+        <div id="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
           <div>
             <div className="section-label animate-float" style={{ marginBottom: 24 }}>Digital Product Studio</div>
             <h1 className="animate-float-delay" style={{ fontSize: 'clamp(42px, 5vw, 68px)', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.03em', margin: '0 0 24px' }}>
@@ -437,12 +437,12 @@ function Hero() {
             <p className="animate-float-delay2" style={{ fontSize: 16, color: 'var(--text-muted)', lineHeight: 1.7, maxWidth: 480, margin: '0 0 40px' }}>
               GPC DevHub ships production-grade web apps, APIs, SaaS platforms, and industrial tools — across maritime, fintech, sustainability, civic tech, and beyond.
             </p>
-            <div className="animate-float-delay3" style={{ display: 'flex', gap: 16 }}>
+            <div id="hero-btns" className="animate-float-delay3" style={{ display: 'flex', gap: 16 }}>
               <a href="#work" className="btn-primary">View our work</a>
               <a href="#contact" className="btn-ghost">Get in touch</a>
             </div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 40 }}>
+          <div id="hero-right" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 40 }}>
             <div className="animate-float"><HeroLogo /></div>
             <div className="animate-float-delay" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, width: '100%' }}>
               {[
@@ -535,7 +535,7 @@ function Work() {
       </div>
 
       {/* Featured */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, marginBottom: 2 }}>
+      <div id="portfolio-featured" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, marginBottom: 2 }}>
         {featured.map(item => <PortfolioCard key={item.id} item={item} large />)}
       </div>
 
@@ -554,7 +554,7 @@ function Work() {
       </div>
 
       {/* Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2 }}>
+      <div id="portfolio-rest" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2 }}>
         {filtered.map(item => <PortfolioCard key={item.id} item={item} />)}
       </div>
     </section>
@@ -565,7 +565,7 @@ function About() {
   return (
     <section id="about" style={{ borderTop: '1px solid var(--border)', background: 'var(--panel)' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '100px 24px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80 }}>
+        <div id="about-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80 }}>
           <div>
             <div className="section-label" style={{ marginBottom: 16 }}>About</div>
             <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, letterSpacing: '-0.03em', margin: '0 0 24px', lineHeight: 1.1 }}>
@@ -607,13 +607,13 @@ function Services() {
     { icon: '📱', title: 'Offline-first Apps', desc: 'Single-file or PWA applications that work without connectivity. Data sync via JSON import/export for environments without reliable internet.' },
   ]
   return (
-    <section id="services" style={{ padding: '100px 24px' }}>
+    <section id="services" style={{ padding: '100px 24px 100px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ marginBottom: 56 }}>
           <div className="section-label" style={{ marginBottom: 16 }}>Services</div>
           <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, letterSpacing: '-0.03em', margin: 0 }}>What we do</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2 }}>
+        <div id="services-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2 }}>
           {services.map(s => (
             <div key={s.title} style={{ background: 'var(--panel)', border: '1px solid var(--border)', padding: '28px', borderRadius: 0 }}>
               <div style={{ fontSize: 28, marginBottom: 16 }}>{s.icon}</div>
@@ -630,7 +630,7 @@ function Services() {
 function Contact() {
   return (
     <section id="contact" style={{ borderTop: '1px solid var(--border)', background: 'var(--panel)', padding: '100px 24px' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+      <div id="contact-grid" style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
         <div>
           <div className="section-label" style={{ marginBottom: 16 }}>Contact</div>
           <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, letterSpacing: '-0.03em', margin: '0 0 20px', lineHeight: 1.1 }}>
