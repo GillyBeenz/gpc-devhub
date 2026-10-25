@@ -242,6 +242,13 @@ body {
     gap: 2px !important;
   }
 
+  /* Latest updates: date and product stack above the text */
+  #updates { padding: 0 16px 56px !important; }
+  .update-row {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
+
   /* Services */
   #services { padding: 56px 16px !important; }
   #services-grid {

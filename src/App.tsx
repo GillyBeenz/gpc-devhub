@@ -70,6 +70,8 @@ interface Project {
   url: string | null
   featured: boolean
   pauseReason?: string
+  /** Shown under the status badge instead of the status's default tooltip. */
+  statusNote?: string
 }
 
 const portfolio: Project[] = [
@@ -78,7 +80,7 @@ const portfolio: Project[] = [
     name: 'EU Compliance Data APIs',
     category: 'API Product',
     status: 'live-partial',
-    description: 'Metered REST API serving EU regulatory reference data — breach-notification deadlines, EUDR country risk, AI Act obligation dates, Pay Transparency, CSRD scope, Battery Regulation, DSA VLOP designation, grid carbon intensity, late-payment interest rates, and more. 10 endpoints live; CBAM, CSDDD and PPWR pending source verification.',
+    description: 'Metered REST API serving EU regulatory reference data — breach-notification deadlines, EUDR country risk, AI Act obligation dates, Pay Transparency, CSRD scope, Battery Regulation, DSA VLOP designation, whistleblower rules, grid carbon intensity and late-payment interest rates. 10 endpoints live with a free tier of 50 calls a month; CBAM, CSDDD and PPWR open once each is verified against the official source.',
     tags: ['REST API', 'EU Regulation', 'Next.js', 'Stripe'],
     icon: '⚖️',
     color: '#2B5FEC',
@@ -102,8 +104,8 @@ const portfolio: Project[] = [
     name: 'GreenCareerBoard',
     category: 'Job Board Platform',
     status: 'live',
-    description: 'Niche job board connecting green-economy talent with renewable energy employers. Categories span solar, wind, hydrogen, EV, battery storage, smart grid, and more. Free for job seekers; employer job posting monetisation in build-out.',
-    tags: ['Platform', 'Sustainability', 'Job Board'],
+    description: 'Europe-wide job board for the green economy — solar, wind, hydrogen, EV, storage, smart grid and more, in English and Portuguese. Free for job seekers, with full search filters and saved-search job alerts. Employers get a self-serve dashboard with moderated listings and paid Standard and Premium tiers; plus a blog and a monthly newsletter.',
+    tags: ['Job Board', 'Next.js', 'Supabase', 'Stripe', 'EN / PT'],
     icon: '🌱',
     color: '#22C55E',
     url: 'https://www.greencareerboard.com',
@@ -111,11 +113,11 @@ const portfolio: Project[] = [
   },
   {
     id: 4,
-    name: 'Apoios',
+    name: 'Appoios',
     category: 'Civic Tech',
     status: 'live',
-    description: 'Portuguese government funding tracker for homeowners. Monitors Fundo Ambiental, PT2030 and PRR environmental grants across a dozen official sources, then alerts users when a programme they follow opens — before the allocation runs out.',
-    tags: ['Civic Tech', 'Portugal', 'Next.js', 'Supabase'],
+    description: 'Portuguese funding tracker for homeowners. Reads a dozen official sources — Fundo Ambiental, PT2030 (including its annual plan of upcoming calls) and PRR — into a catalogue of 400+ programmes, each linked to its official notice. Alerts you when a programme you follow opens, nears its deadline or runs out of budget, and stays silent when eligibility is unclear.',
+    tags: ['Civic Tech', 'Portugal', 'Next.js', 'Supabase', 'AI extraction'],
     icon: '🏡',
     color: '#06B6D4',
     url: 'https://web-three-gules-95.vercel.app/',
@@ -125,20 +127,21 @@ const portfolio: Project[] = [
     id: 5,
     name: 'Marine Data API',
     category: 'API Product',
-    status: 'needs-deploy',
-    description: 'Metered REST API serving tide predictions, astronomical data and marine forecasts. Tidal harmonics sourced from NOAA CO-OPS and Instituto Hidrográfico. Backend (Supabase) is live and healthy; frontend deployment pending.',
-    tags: ['API', 'Marine', 'Tides', 'Supabase'],
+    status: 'live-partial',
+    statusNote: 'Free plan open; paid plans coming soon',
+    description: 'Wind, waves, swell, sea temperature, tides, sun and moon for any coastal point in one call — built for surf, kite, windsurf, wing foil, sailing and fishing apps. Copernicus Marine waves, MET Norway weather and tides from real gauges. Public site with docs, OpenAPI, a free embeddable widget and self-serve free keys (3,000 calls a month). Runs on Cloudflare Workers.',
+    tags: ['REST API', 'Marine', 'Cloudflare', 'Supabase'],
     icon: '🌊',
     color: '#0EA5E9',
-    url: null,
-    featured: false,
+    url: 'https://marine-api.gilpvdevhub.workers.dev',
+    featured: true,
   },
   {
     id: 6,
     name: 'AI Engineering Compliance Assistant',
     category: 'B2B SaaS',
     status: 'in-dev',
-    description: 'RAG-based maritime compliance platform covering SOLAS, MARPOL, MLC, Load Line and IMO regulations. Evidence-cited answers, compliance gap reports, and a multi-module SaaS expansion roadmap.',
+    description: 'RAG-based maritime compliance platform covering SOLAS, MARPOL, MLC, Load Line and IMO regulations, for design offices, shipyards and freelance naval architects. Evidence-cited answers and compliance gap reports. All twelve planning artefacts — PRD, architecture, API spec, threat model, roadmap — are complete ahead of the build.',
     tags: ['Maritime', 'RAG/AI', 'SaaS', 'Next.js'],
     icon: '⚓',
     color: '#6366F1',
@@ -187,8 +190,8 @@ const portfolio: Project[] = [
     id: 10,
     name: 'Personal Trading Bot',
     category: 'Fintech',
-    status: 'built',
-    description: 'Automated trading system for portfolio management and algorithmic strategy execution. Connects to market data feeds and executes rule-based orders.',
+    status: 'in-dev',
+    description: 'Automated trading system for algorithmic strategy execution. Connects to market data feeds and executes rule-based orders; a new strategy set is now in a forward test before any of it trades.',
     tags: ['Fintech', 'Automation', 'Algo'],
     icon: '📈',
     color: '#A855F7',
@@ -317,11 +320,11 @@ const portfolio: Project[] = [
   },
   {
     id: 21,
-    name: 'Watch Face Designer',
-    category: 'Creative Tool',
-    status: 'built',
-    description: 'Custom watch face creation and preview tool. Design digital and analog faces with custom complications, typography and colour themes.',
-    tags: ['Design', 'Creative', 'Wearables'],
+    name: 'WindPulse Watch Face',
+    category: 'Wearables',
+    status: 'in-dev',
+    description: 'Wear OS watch face for wind and water sports. Shows wind speed and direction, waves and wave period, and today\'s tide curve for saved spots or your current location, fed by the Marine Data API. In field testing on the water.',
+    tags: ['Wear OS', 'Kotlin', 'Marine', 'Wearables'],
     icon: '⌚',
     color: '#6B7280',
     url: null,
@@ -356,18 +359,18 @@ const portfolio: Project[] = [
     name: 'GPC DevHub',
     category: 'Studio Website',
     status: 'live',
-    description: 'This site. A portfolio and studio website for GPC DevHub — built as a production-grade React app, bundled to a single HTML artifact. Showcases all live, paused, and locally-built projects with verified deployment statuses pulled from Supabase and Vercel.',
+    description: 'This site. The portfolio and studio website for GPC DevHub, built in React and deployed on Vercel. Every status here is checked against the live sites and their hosting before an update goes out.',
     tags: ['React', 'Portfolio', 'Meta'],
     icon: '🌐',
     color: '#2B5FEC',
-    url: null,
+    url: 'https://gpc-devhub.vercel.app/',
     featured: false,
   },
 ]
 
-function StatusBadge({ status, pauseReason }: { status: StatusType; pauseReason?: string }) {
+function StatusBadge({ status, pauseReason, note }: { status: StatusType; pauseReason?: string; note?: string }) {
   const cfg = STATUS_CONFIG[status]
-  const tip = pauseReason || cfg.tooltip
+  const tip = pauseReason || note || cfg.tooltip
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
@@ -401,7 +404,7 @@ function Nav() {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
             <nav id="nav-links" style={{ display: 'flex', gap: 28 }}>
-              {['Work', 'About', 'Services', 'Contact'].map(item => (
+              {['Work', 'Updates', 'About', 'Services', 'Contact'].map(item => (
                 <a key={item} href={`#${item.toLowerCase()}`} style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: 14, fontWeight: 500, transition: 'color 0.2s' }}
                   onMouseEnter={e => (e.target as HTMLElement).style.color = 'var(--text-primary)'}
                   onMouseLeave={e => (e.target as HTMLElement).style.color = 'var(--text-muted)'}
@@ -421,6 +424,7 @@ function Nav() {
 
 function Hero() {
   const liveCount = portfolio.filter(p => p.status === 'live' || p.status === 'live-partial').length
+  const liveSites = portfolio.filter(p => p.url && p.category !== 'Studio Website').length
   return (
     <section className="grid-bg" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: 64 }}>
       <div style={{ position: 'absolute', top: '15%', left: '10%', width: 500, height: 500, background: 'radial-gradient(circle, rgba(43,95,236,0.08) 0%, transparent 70%)', pointerEvents: 'none' }}/>
@@ -448,7 +452,7 @@ function Hero() {
               {[
                 { value: `${portfolio.length}+`, label: 'Apps shipped' },
                 { value: `${liveCount}`, label: 'Live products' },
-                { value: '5', label: 'Live domains' },
+                { value: `${liveSites}`, label: 'Live sites' },
                 { value: '∞', label: 'Ideas building' },
               ].map(s => (
                 <div key={s.label} className="stat-card">
@@ -471,7 +475,7 @@ function PortfolioCard({ item, large = false }: { item: Project; large?: boolean
         <div style={{ fontSize: large ? 40 : 32, lineHeight: 1 }}>{item.icon}</div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
           <span className="tag gold">{item.category}</span>
-          <StatusBadge status={item.status} pauseReason={item.pauseReason} />
+          <StatusBadge status={item.status} pauseReason={item.pauseReason} note={item.statusNote} />
         </div>
       </div>
       <h3 style={{ fontWeight: 700, fontSize: large ? 22 : 17, letterSpacing: '-0.02em', margin: '0 0 10px', lineHeight: 1.2 }}>{item.name}</h3>
@@ -536,7 +540,12 @@ function Work() {
 
       {/* Featured */}
       <div id="portfolio-featured" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, marginBottom: 2 }}>
-        {featured.map(item => <PortfolioCard key={item.id} item={item} large />)}
+        {featured.map((item, i) => (
+          // An odd last card spans the full row instead of leaving half of it empty.
+          <div key={item.id} style={featured.length % 2 === 1 && i === featured.length - 1 ? { gridColumn: '1 / -1' } : undefined}>
+            <PortfolioCard item={item} large />
+          </div>
+        ))}
       </div>
 
       {/* Filter */}
@@ -556,6 +565,34 @@ function Work() {
       {/* Grid */}
       <div id="portfolio-rest" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2 }}>
         {filtered.map(item => <PortfolioCard key={item.id} item={item} />)}
+      </div>
+    </section>
+  )
+}
+
+// Dated, newest first. Keep entries to what is public on the product sites themselves.
+const UPDATES: { date: string; product: string; text: string }[] = [
+  { date: '24 Oct 2026', product: 'Marine Data API', text: 'Opened to the public: a website with docs, an OpenAPI file, a free embeddable conditions widget and self-serve free keys. Moved to Cloudflare Workers, with every limit and cache now in its own database.' },
+  { date: '24 Oct 2026', product: 'WindPulse', text: 'Wind and wave arrows now point the true direction, after testing on the water.' },
+  { date: '20 Oct 2026', product: 'WindPulse', text: 'Wave period and today\'s tide curve on the face; spots saved by name, by coordinates or from your current location.' },
+  { date: 'Oct 2026', product: 'Appoios', text: 'The nightly pipeline now records why any extraction failed, and the catalogue includes PT2030\'s annual plan of upcoming calls, so programmes appear before they open.' },
+  { date: 'Oct 2026', product: 'Compliance Data APIs', text: 'Health checks for compliancerates.com and cbamrates.com, and a neutral key format for new API keys.' },
+  { date: 'Aug–Sep 2026', product: 'GreenCareerBoard', text: 'Saved-search job alerts, the full set of search filters, an employer dashboard with paid Standard and Premium listings, and Portuguese across the employer pages.' },
+]
+
+function Updates() {
+  return (
+    <section id="updates" style={{ padding: '0 24px 100px', maxWidth: 1200, margin: '0 auto' }}>
+      <div className="section-label" style={{ marginBottom: 16 }}>Latest updates</div>
+      <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 700, letterSpacing: '-0.03em', margin: '0 0 32px' }}>What changed recently</h2>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        {UPDATES.map(u => (
+          <div key={u.date + u.product + u.text.slice(0, 12)} className="update-row" style={{ display: 'grid', gridTemplateColumns: '140px 200px 1fr', gap: 24, padding: '18px 0', borderBottom: '1px solid var(--border)' }}>
+            <div className="mono" style={{ fontSize: 11, color: 'var(--text-muted)', letterSpacing: '0.06em', paddingTop: 2 }}>{u.date}</div>
+            <div style={{ fontWeight: 700, fontSize: 14 }}>{u.product}</div>
+            <div style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.6 }}>{u.text}</div>
+          </div>
+        ))}
       </div>
     </section>
   )
@@ -682,6 +719,7 @@ export default function App() {
       <Nav />
       <Hero />
       <Work />
+      <Updates />
       <About />
       <Services />
       <Contact />
