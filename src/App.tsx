@@ -104,7 +104,7 @@ const portfolio: Project[] = [
     name: 'GreenCareerBoard',
     category: 'Job Board Platform',
     status: 'live',
-    description: 'Europe-wide job board for the green economy — solar, wind, hydrogen, EV, storage, smart grid and more, in English and Portuguese. Free for job seekers, with full search filters and saved-search job alerts. Employers get a self-serve dashboard with moderated listings and paid Standard and Premium tiers; plus a blog and a monthly newsletter.',
+    description: 'Europe-wide job board for the green economy — solar, wind, hydrogen, EV, storage, smart grid and more, in English and Portuguese. 200+ live roles, refreshed daily from employers\' own careers pages, with pages by sector and country. Free for job seekers: full search filters, job alerts, and an account to save jobs and track applications. Employers get a self-serve dashboard with moderated listings and Standard and Premium upgrades; plus a blog and a monthly newsletter.',
     tags: ['Job Board', 'Next.js', 'Supabase', 'Stripe', 'EN / PT'],
     icon: '🌱',
     color: '#22C55E',
@@ -322,8 +322,8 @@ const portfolio: Project[] = [
     id: 21,
     name: 'WindPulse Watch Face',
     category: 'Wearables',
-    status: 'in-dev',
-    description: 'Wear OS watch face for wind and water sports. Shows wind speed and direction, waves and wave period, and today\'s tide curve for saved spots or your current location, fed by the Marine Data API. In field testing on the water.',
+    status: 'built',
+    description: 'Wear OS watch face for wind and water sports. Shows wind speed and direction, waves and wave period, and today\'s tide curve for saved spots or your current location, fed by the Marine Data API. In daily use on a Galaxy Watch5 Pro; personal for now, not on Google Play.',
     tags: ['Wear OS', 'Kotlin', 'Marine', 'Wearables'],
     icon: '⌚',
     color: '#6B7280',
@@ -572,6 +572,9 @@ function Work() {
 
 // Dated, newest first. Keep entries to what is public on the product sites themselves.
 const UPDATES: { date: string; product: string; text: string }[] = [
+  { date: '26 Oct 2026', product: 'WindPulse', text: 'Production build now in daily use on the watch, reading the public Marine Data API.' },
+  { date: '25 Oct 2026', product: 'GreenCareerBoard', text: 'Job-seeker accounts: save jobs, track where you applied, manage job alerts and choose the sectors and countries the job list opens with. Signing in is by email link, and the account can be deleted in one step.' },
+  { date: '25 Oct 2026', product: 'GreenCareerBoard', text: '200+ roles now imported daily from employers\' own careers pages, plus browse pages by sector and country. Security, SEO and admin checks run automatically on every change.' },
   { date: '24 Oct 2026', product: 'Marine Data API', text: 'Opened to the public: a website with docs, an OpenAPI file, a free embeddable conditions widget and self-serve free keys. Moved to Cloudflare Workers, with every limit and cache now in its own database.' },
   { date: '24 Oct 2026', product: 'WindPulse', text: 'Wind and wave arrows now point the true direction, after testing on the water.' },
   { date: '20 Oct 2026', product: 'WindPulse', text: 'Wave period and today\'s tide curve on the face; spots saved by name, by coordinates or from your current location.' },
